@@ -41,5 +41,3 @@ flatpak install flathub one.ablaze.floorp org.blender.Blender  io.gitlab.librewo
 Alternatively, you can use the attached script `set-hypr` to install everything automatically for you.
 
 ---
-
-Feel free to modify this as needed!
