@@ -13,6 +13,7 @@
     "bluetooth",
     "temperature",
     "battery",
+    "hyprland/language",
     "backlight",
     "pulseaudio",
     "pulseaudio#microphone",
@@ -20,6 +21,14 @@
   ],
   "hyprland/window": {
     "format": "{}"
+  },
+
+  "hyprland/language": {
+      "format": "{}",
+      "format-en": "US",
+      "format-tr": "TR",
+      "keyboard-name": "at-translated-set-2-keyboard",
+      "on-click": "hyprctl keymap next"
   },
 
   "hyprland/workspaces": {
