@@ -70,7 +70,8 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
     polkit-gnome python-requests starship \
     swappy grim slurp pamixer brightnessctl gvfs \
     bluez bluez-utils lxappearance xfce4-settings \
-    dracula-gtk-theme dracula-icons-git xdg-desktop-portal-hyprland
+    dracula-gtk-theme dracula-icons-git xdg-desktop-portal-hyprland \
+    btop 
 
     # Start the bluetooth service
     echo -e "Starting the Bluetooth Service...\n"
@@ -132,7 +133,6 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     
     # Set some files as exacutable 
     chmod +x ~/.config/hypr/xdg-portal-hyprland
-    chmod +x ~/.config/waybar/scripts/waybar-wttr.py
 fi
 
 ### Install teh starship shell ###
@@ -143,7 +143,6 @@ if [[ $STAR == "Y" || $STAR == "y" ]]; then
     echo -e '\neval "$(starship init bash)"' >> ~/.bashrc
     echo -e "copying starship config file to ~/.confg ...\n"
     cp starship.toml ~/.config/
-    cp starshipOtherTheme.toml ~/.config/
 fi
 
 ### Script is done ###

@@ -1,153 +1,430 @@
+@import "theme.css";
+
 * {
-    border: none;
-    border-radius: 0;
-    font-family: "JetBrainsMono Nerd Font";
-    font-weight: bold;
-    font-size:12px;
-    min-height: 0;
+  font-family: "JetBrainsMono Nerd Font";
+  font-weight: bold;
+  min-height: 0;
+  padding: 0;
+  border: none;
+  margin: 0;
 }
+
+/* <<--< Main Background >-->> */
+
+window#waybar > box {
+  background-color: @main-bg;
+}
+
+/* <<--< Drop Shadow >-->> */
 
 window#waybar {
-    background: rgba(21, 18, 27, 0);
-    color: #cdd6f4;
+  background: @shadow;
 }
+
+/* <<--< Tooltip >-->> */
 
 tooltip {
-    background: #1e1e2e;
-    border-radius: 10px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #11111b;
+  background: @main-bg;
+  border: solid;
+  border-width: 1.5px;
+  border-radius: 8px;
+  border-color: @main-br;
 }
+tooltip label {
+  color: @main-fg;
+  font-weight: normal;
+  margin: -1.5px 3px;
+}
+
+/* <<--< Workspace Buttons >-->> */
 
 #workspaces button {
-    padding: 5px;
-    color: #313244;
-    margin-right: 5px;
+  color: @module-fg;
+  border-radius: 8px;
+  box-shadow: none;
+  margin: 2px 0;
+  padding: 0 2px;
+  transition: none;
 }
-
-#workspaces button.active {
-    color: #a6adc8;
-}
-
-#workspaces button.focused {
-    color: #a6adc8;
-    background: #eba0ac;
-    border-radius: 10px;
-}
-
-#workspaces button.urgent {
-    color: #11111b;
-    background: #a6e3a1;
-    border-radius: 10px;
-}
-
 #workspaces button:hover {
-    background: #11111b;
-    color: #cdd6f4;
-    border-radius: 10px;
+  color: @hover-fg;
+  background: @hover-bg;
+  text-shadow: none;
+}
+#workspaces button.active {
+  color: @active-fg;
+  background: @active-bg;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.4);
+  margin: 2px;
+  padding: 0 6px;
 }
 
-#custom-spotify,
-#window,
-#clock,
-#battery,
-#pulseaudio,
-#network,
-#bluetooth,
-#temperature,
+/* <<--< General >-->> */
+
+#custom-ws,
 #workspaces,
-#tray,
+#window,
+#custom-cpuinfo,
+#memory,
+#cpu,
+#idle_inhibitor,
+#clock,
+#custom-wifi,
+#bluetooth,
+#custom-update,
+#mpris,
+#pulseaudio,
+#backlight,
+#battery,
 #language,
-#backlight {
-    background: #1e1e2e;
-    opacity: 0.8;
-    padding: 0px 10px;
-    margin: 3px 0px;
-    margin-top: 10px;
-    border: 1px solid #181825;
+#custom-power {
+  opacity: 1;
+  color: @module-fg;
+  padding: 0 4px;
+  font-size: 12px;
 }
 
-#temperature {
-    border-radius: 10px 0px 0px 10px;
+#custom-left1,
+#custom-left2,
+#custom-left3,
+#custom-left4,
+#custom-left5,
+#custom-left6,
+#custom-left7,
+#custom-left8 {
+  margin-bottom: 0;
+  text-shadow: -2px 0 2px rgba(0, 0, 0, 0.5);
 }
 
-#temperature.critical {
-    color: #eba0ac;
+#custom-right1,
+#custom-right2,
+#custom-right3,
+#custom-right4,
+#custom-right5 {
+  margin-bottom: 0;
+  padding-right: 3px;
+  text-shadow: 2px 0 2px rgba(0, 0, 0, 0.5);
 }
 
-#backlight {
-    border-radius: 10px 0px 0px 10px;
+/* <<--< Modules >-->> */
+
+/* Window Icon */
+
+#custom-ws {
+  background: @main-bg;
+}
+#custom-ws:hover {
+  color: @hover-fg;
 }
 
-#tray {
-    border-radius: 10px;
-    margin-right: 10px;
-}
+/* Workspaces */
 
+#custom-left1 {
+  color: @workspaces;
+  background: @main-bg;
+  margin-bottom: 0;
+  padding-left: 2px;
+}
 #workspaces {
-    background: #1e1e2e;
-    border-radius: 10px;
-    margin-left: 10px;
-    padding-right: 0px;
-    padding-left: 5px;
+  background: @workspaces;
+}
+#custom-right1 {
+  color: @workspaces;
+  background: @main-bg;
+  text-shadow: 3px 0 2px rgba(0, 0, 0, 0.4);
+  margin-bottom: 0;
 }
 
+/* Temperature */
 
-#window {
-    border-radius: 10px;
-    margin-left: 60px;
-    margin-right: 60px;
+#custom-paddc {
+  padding-right: 22px;
+}
+#custom-left2 {
+  color: @cpuinfo;
+  background: @main-bg;
+  padding-left: 3px;
+}
+#custom-cpuinfo {
+  background: @cpuinfo;
+  padding-left: 1px;
+  padding-right: 0;
 }
 
-#clock {
-    color: #fab387;
-    border-radius: 10px 0px 0px 10px;
-    margin-left: 10px;
-    border-right: 0px;
+/* Memory */
+
+#custom-left3 {
+  color: @memory;
+  background: @cpuinfo;
+  padding-left: 3px;
+}
+#memory {
+  background: @memory;
+  padding-left: 1px;
+  padding-right: 0;
+}
+#memory.warning {
+  color: @warning;
+}
+#memory.critical {
+  color: @critical;
 }
 
-#network {
-    color: #f9e2af;
-    border-radius: 10px 0px 0px 10px;
-    border-left: 0px;
-    border-right: 0px;
+/* CPU */
+
+#custom-left4 {
+  color: @cpu;
+  background: @memory;
+  padding-left: 3px;
+}
+#cpu {
+  background: @cpu;
+}
+#custom-leftin1 {
+  color: @cpu;
+  margin-bottom: -1px;
+}
+
+/* Distro Icon */
+
+#custom-left5 {
+  color: @distro-bg;
+  background: @main-bg;
+  text-shadow: none;
+  margin-bottom: -2px;
+  padding-left: 3px;
+}
+#custom-distro {
+  color: @distro-fg;
+  background: @distro-bg;
+  margin: 0 -1px -2px 0;
+  padding: 0 0 0 3px;
+  text-shadow: 0 0 1.5px rgba(0, 0, 0, 1);
+}
+#custom-right2 {
+  color: @distro-bg;
+  background: @main-bg;
+  text-shadow: none;
+  margin-bottom: -2px;
+}
+
+/* Time */
+
+#custom-rightin1 {
+  color: @time;
+  margin-bottom: -1px;
+}
+#idle_inhibitor {
+  background: @time;
+  margin-right: -2px;
+  padding: 0 0 0 7px;
+}
+#idle_inhibitor:hover {
+  color: @hover-fg;
+}
+#clock.time {
+  background: @time;
+  padding: 0 3px 0 0;
+}
+#custom-right3 {
+  color: @time;
+  background: @date;
+}
+
+/* Date */
+
+#clock.date {
+  background: @date;
+}
+#clock.date:hover {
+  color: @hover-fg;
+}
+#custom-right4 {
+  color: @date;
+  background: @tray;
+}
+
+/* Tray */
+
+#custom-wifi {
+  padding-left: 5px;
+  padding-right: 8px;
+  background: @tray;
+}
+#custom-wifi:hover {
+  color: @hover-fg;
 }
 
 #bluetooth {
-    color: #89b4fa;
-    border-radius: 0px 10px 10px 0px;
-    margin-right: 10px
-} 
+  padding-right: 5px;
+  background: @tray;
+}
+#bluetooth:hover {
+  color: @hover-fg;
+}
 
+#custom-update {
+  padding-right: 8px;
+  background: @tray;
+}
+#custom-update:hover {
+  color: @hover-fg;
+}
+#custom-right5 {
+  color: @tray;
+  background: @main-bg;
+}
+
+/* Media Info */
+
+#mpris {
+  font-weight: normal;
+  background-color: @main-bg;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+#mpris:hover {
+  color: @hover-fg;
+}
+
+/* Output Device */
+
+#custom-left6 {
+  color: @pulseaudio;
+  background: @main-bg;
+  padding-left: 3px;
+}
 #pulseaudio {
-    color: #89b4fa;
-    border-left: 0px;
-    border-right: 0px;
+  background: @pulseaudio;
+}
+#pulseaudio:hover {
+  color: @hover-fg;
 }
 
-#pulseaudio.microphone {
-    color: #cba6f7;
-    border-left: 0px;
-    border-right: 0px;
-    border-radius: 0px 10px 10px 0px;
-    margin-right: 10px;
+/* Brightness */
+
+#custom-left7 {
+  color: @backlight;
+  background: @pulseaudio;
+  padding-left: 2px;
+}
+#backlight {
+  background: @backlight;
 }
 
+/* Battery */
+
+#custom-left8 {
+  color: @battery;
+  background: @backlight;
+  padding-left: 2px;
+}
 #battery {
-    color: #a6e3a1;
-    border-radius: 0 10px 10px 0;
-    margin-right: 10px;
-    border-left: 0px;
+  color: @module-fg;
+  background: @battery;
+}
+#battery.warning {
+  color: @warning;
+}
+#battery.critical {
+  color: @critical;
+}
+#battery.charging {
+  color: @charging;
 }
 
-#custom-spotify {
-    color: #1DB954;
-    border-radius: 10px 0px 0px 10px;
-    margin-left: 10px;
-    border-right: 0px;
+/* Power Button */
+
+#custom-leftin2 {
+  color: @battery;
+  background: @main-bg;
+  margin-bottom: -1px;
+}
+#custom-power {
+  color: @main-bg;
+  background: @power;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  margin: 2px 4px 2px 0;
+  padding: 0 6px 0 9px;
+}
+#custom-power:hover {
+  color: @hover-fg;
+  background: @hover-bg;
+  text-shadow: none;
+  box-shadow: none;
 }
 
-#language {
-    border-radius: 10px 0px 0px 10px;
+/* <<--< FONT SIZES >-->> */
+
+/*
+  NOTE: Be careful when changing font sizes, as they
+  can affect alignment.
+
+  Try adjusting whole numbers first, then refine with
+  decimals.
+
+  If you increase or decrease a value, make the same
+  change to all properties in this section to keep
+  the layout consistent.
+*/
+
+/* modules */
+* {
+  font-size: 10px;
+}
+
+/* left and right arrows */
+#custom-left1,
+#custom-left2,
+#custom-left3,
+#custom-left4,
+#custom-left5,
+#custom-left6,
+#custom-left7,
+#custom-left8,
+#custom-right1,
+#custom-right2,
+#custom-right3,
+#custom-right4,
+#custom-right5 {
+  font-size: 14.68px;
+}
+
+/* left and right inverse */
+#custom-leftin1,
+#custom-leftin2,
+#custom-rightin1 {
+  font-size: 15.5px;
+}
+
+/* distro icon */
+#custom-distro {
+  font-size: 14.6px;
+}
+
+/* distro arrows override */
+#custom-left5,
+#custom-right2 {
+  font-size: 15.68px;
+}
+
+/*
+  Adjust these properties as well to keep the design
+  consistent.
+*/
+
+#workspaces button {
+  border-radius: 8px;
+  padding: 0 2px;
+}
+#workspaces button.active {
+  padding: 0 6px;
+}
+
+#custom-power {
+  border-radius: 10px;
+  padding: 0 6px 0 9px;
 }
