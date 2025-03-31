@@ -11,14 +11,14 @@ This repository provides a collection of dot config files for Hyprland, along wi
 To grab the config files and install the required packages manually, you can use the following command:
 
 ```bash
-yay -S hyprland-bin kitty zsh waybar-hyprland \
+    yay -S --noconfirm hyprland kitty waybar zsh\
     swaybg swaylock-effects wofi wlogout mako thunar \
     ttf-jetbrains-mono-nerd noto-fonts-emoji \
     polkit-gnome python-requests starship \
     swappy grim slurp pamixer brightnessctl gvfs \
-    bluez bluez-utils lxappearance xfce4-settings \
-    dracula-gtk-theme dracula-icons-git xdg-desktop-portal-hyprland-git \
-    btop
+    bluez bluez-utils lxappearance xfce4-settings xfce4-appfinder \
+    dracula-gtk-theme dracula-icons-git xdg-desktop-portal-hyprland \
+    btop navicat17-premium-en
 ```
 
 To install additional apps, you can use:
