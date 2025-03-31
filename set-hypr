@@ -69,9 +69,9 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
     ttf-jetbrains-mono-nerd noto-fonts-emoji \
     polkit-gnome python-requests starship \
     swappy grim slurp pamixer brightnessctl gvfs \
-    bluez bluez-utils lxappearance xfce4-settings \
+    bluez bluez-utils lxappearance xfce4-settings xfce4-appfinder \
     dracula-gtk-theme dracula-icons-git xdg-desktop-portal-hyprland \
-    btop 
+    btop navicat17-premium-en
 
     # Start the bluetooth service
     echo -e "Starting the Bluetooth Service...\n"
@@ -83,7 +83,7 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
     yay -R --noconfirm xdg-desktop-portal-gnome xdg-desktop-portal-gtk
 fi
 
-# Install Flatpak 
+# Install Flatpak question
 read -n1 -rep 'Would you like to install Flatpak? (y,n): ' FLATPAK_INST
 echo
 
@@ -93,9 +93,9 @@ if [[ $FLATPAK_INST == "Y" || $FLATPAK_INST == "y" ]]; then
     echo -e "Flatpak has been installed successfully.\n"
     sleep 1
 
-    # Set GTK_THEME to Adwaita:dark for Flatpak apps
-    sudo flatpak override --env=GTK_THEME=Adwaita:dark
-    echo -e "GTK_THEME has been set to Adwaita:dark for Flatpak apps.\n"
+    # Set GTK_THEME to Dracula for Flatpak apps
+    sudo flatpak override --env=GTK_THEME=dracula
+    echo -e "GTK_THEME has been set to Dracula for Flatpak apps.\n"
 
     read -n1 -rep 'Would you like to install My default apps? (y,n): ' INSTALL_FLATPAK_APPS
     echo
@@ -103,14 +103,9 @@ if [[ $FLATPAK_INST == "Y" || $FLATPAK_INST == "y" ]]; then
     echo -e "Installing Flatpak applications...\n"
     
     # Example applications to install
-    sudo flatpak install -y flathub md.obsidian.Obsidian
-    sudo flatpak install -y flathub fr.romainvigier.MetadataCleaner
-    sudo flatpak install -y flathub org.qbittorrent.qBittorrent
-    sudo flatpak install -y flathub io.dbeaver.DBeaverCommunity
-    sudo flatpak install -y flathub org.sqlitebrowser.sqlitebrowser
-    sudo flatpak install -y flathub in.cinny.Cinny
+    sudo flatpak install -y flathub md.obsidian.Obsidian fr.romainvigier.MetadataCleaner org.qbittorrent.qBittorrent io.dbeaver.DBeaverCommunity org.sqlitebrowser.sqlitebrowser in.cinny.Cinny
 
-    sudo flatpak override --env=GTK_THEME=Adwaita:dark
+    sudo flatpak override --env=GTK_THEME=dracula
     echo -e "Flatpak applications installed successfully.\n"
 
 else
@@ -133,6 +128,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     
     # Set some files as exacutable 
     chmod +x ~/.config/hypr/xdg-portal-hyprland
+    chmod +x ~/.config/hypr/Navicat.sh
 fi
 
 ### Install teh starship shell ###

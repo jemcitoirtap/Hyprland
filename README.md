@@ -17,7 +17,8 @@ yay -S hyprland-bin kitty zsh waybar-hyprland \
     polkit-gnome python-requests starship \
     swappy grim slurp pamixer brightnessctl gvfs \
     bluez bluez-utils lxappearance xfce4-settings \
-    dracula-gtk-theme dracula-icons-git xdg-desktop-portal-hyprland-git
+    dracula-gtk-theme dracula-icons-git xdg-desktop-portal-hyprland-git \
+    btop
 ```
 
 To install additional apps, you can use:
